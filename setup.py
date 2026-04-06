@@ -8,7 +8,23 @@ DATA_FILES = [
 
 OPTIONS = {
     'argv_emulation': True,
+
+    # 🔥 Important (hidden imports fix)
     'packages': ['customtkinter', 'pandas', 'numpy', 'joblib', 'lightgbm'],
+
+    # 🔥 GUI apps ke liye required
+    'plist': {
+        'CFBundleName': 'RSSI Predictor',
+        'CFBundleDisplayName': 'RSSI Predictor',
+        'CFBundleIdentifier': 'com.rssi.app',
+        'CFBundleVersion': '1.0.0',
+    },
+
+    # 🔥 Fix missing modules issue
+    'includes': ['tkinter'],
+
+    # 🔥 Better compatibility
+    'excludes': ['matplotlib', 'scipy']
 }
 
 setup(
