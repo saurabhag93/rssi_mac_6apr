@@ -4,7 +4,7 @@ import joblib
 import customtkinter as ctk
 import pandas as pd
 import numpy as np
-from tkinter import messagebox
+from tkinter import messagebox 
 
 # ----------------- Resource helper -----------------
 def resource_path(rel_path):
