@@ -13,9 +13,11 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -25,10 +27,20 @@ jobs:
           pip install -r requirements.txt
           pip install py2app
 
+      # 🔥 Important debug step (very useful)
+      - name: Check files
+        run: |
+          ls -la
+
       - name: Build App
         run: python setup.py py2app
 
-      - name: Upload
+      # 🔥 Check output
+      - name: Check dist folder
+        run: |
+          ls -la dist
+
+      - name: Upload to Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: mac-build
