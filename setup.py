@@ -5,7 +5,7 @@ APP = ['gui.py']
 DATA_FILES = [
     ('', ['base_lgb.pkl'])
 ]
-
+ 
 OPTIONS = {
     'argv_emulation': True,
 
